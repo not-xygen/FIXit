@@ -1,0 +1,84 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #EEEEEE;
+}
+
+.menu
+{
+    position: relative;
+    width: 250px;
+    height: 625px;
+    margin: 0;
+    padding: 10px 0;
+    background-color: #222831;
+    box-sizing: border-box;
+}
+
+.menu p
+{
+    position: relative;
+    top: -45px;
+    color: #EEEEEE;
+    height: 50px;
+    font-size: 60px;
+    line-height: 60px;
+    text-align: center;
+    box-sizing: border-box;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.menu p span
+{
+    color: #FFD369;
+}
+
+.menumenu
+{
+    position: relative;
+    top: -50px;
+    text-align: left;
+    left: 5px;
+}
+
+.menumenu ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+.menumenu ul li
+{
+    position: relative;
+    left: 0;
+    list-style: none;
+    width: 245px;
+    height: 45px;
+    cursor: pointer;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.menumenu ul li:hover
+{
+    background-color: #FFD369;
+}
+
+.menumenu ul li a
+{
+    display: block;
+    text-decoration: none;
+    font-size: 15px;
+    color: #EEEEEE;
+    font-weight: bold;
+    height: 45px;
+    width: 245px;
+    padding: 12px 5px;
+}
+
+.menumenu ul li a:hover
+{
+    color: #222831;
+}
