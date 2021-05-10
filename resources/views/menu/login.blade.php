@@ -17,7 +17,7 @@
                     <input type="text" name="username" placeholder="Username">
                     <input type="password" name="pasword" placeholder="Password">
                     <input type="submit" name="login" value="LOGIN">
-                    <p class="signup">Belum punya akun? <a href="index2.html">Daftar Disini</a></p>
+                    <p class="signup">Belum punya akun? <a href="/registrasi">Daftar Disini</a></p>
                 </form>
             </div>
         </div>

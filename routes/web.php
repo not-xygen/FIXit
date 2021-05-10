@@ -18,3 +18,6 @@ Route::get('/', function () {
 });
 Route::view('/login','menu.login');
 Route::view('/registrasi','menu.registrasi');
+
+Route::view('/admin/dashboard','admin.AdminMenu');
+Route::view('/admin/login','admin.LoginAdmin');
