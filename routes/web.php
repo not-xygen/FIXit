@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +16,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('menu.MainMenuAdmin');
+    return view('welcome');
 });
-Route::view('/login','menu.login');
-Route::view('/registrasi','menu.registrasi');
+Route::group(['middleware' => ['auth', 'role:admin']],function(){
+        Route::get('/daftaruser', [UserController::class, 'dataPelanggan']);
+        Route::get('/daftarfixer', [UserController::class, 'dataFixer']);
+});
 
-Route::view('/admin/dashboard','admin.AdminMenu');
-Route::view('/admin/login','admin.LoginAdmin');
+Route::view('/keluarbang', 'Admin.keluar');
+
+Route::group(['middleware' => ['auth']],function(){
+    Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+    });
+
+
+Route::group(['middleware' => ['auth', 'role:pelanggan,fixer,admin']],function(){
+    Route::get('/profile',[UserController::class, 'profile'])->name('profile');
+    });
+
+require __DIR__.'/auth.php';
