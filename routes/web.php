@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,5 +34,8 @@ Route::group(['middleware' => ['auth']],function(){
 Route::group(['middleware' => ['auth', 'role:pelanggan,fixer,admin']],function(){
     Route::get('/profile',[UserController::class, 'profile'])->name('profile');
     });
+
+Route::get('/payments/{id_fixer}',[PemesananController::class,'pemesanan']);
+Route::Post('/payments/{id_fixer}/invoice',[PemesananController::class,'inputInvoice']);
 
 require __DIR__.'/auth.php';

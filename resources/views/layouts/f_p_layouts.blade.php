@@ -18,7 +18,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
         <div class="container-fluid">
-            <h1><a class="navbar-brand text-white" href="#">Selamat Datang ADMIN | FIX<span class="text-warning">it</span></a></h1>
+            <h1><a class="navbar-brand text-white" href="#">Selamat Datang {{Auth::user()->name}} | FIX<span class="text-warning">IT</span></a></h1>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -33,22 +33,23 @@
         <div class="col-md-2 bg-dark mt-2 pr-3 pt-4">
             <ul class="nav flex-column ml-3 mb-5">
                 <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="halaman_utama.html"><i class="fas fa-home text-warning"></i> Halaman Utama</a>
+                    <a class="nav-link text-white" aria-current="page" href="#"><i class="fas fa-home text-warning"></i> Halaman Utama</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active text-white" href="/daftaruser"><i class="fas fa-user text-warning"></i> Daftar User</a>
+                    <a class="nav-link active text-white" href="/riwayat"><i class="fas fa-user text-warning"></i>Riwayat</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/daftarfixer"><i class="fas fa-user-cog text-warning"></i> Daftar Fixer</a>
+                    <a class="nav-link text-white" href="/profile"><i class="fas fa-user-cog text-warning"></i>Profile</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href=""><i class="fas fa-toolbox text-warning"></i> Daftar Jasa</a>
-                </li>
+                @if (Auth::user()->hasRole('fixer'))
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="/pesanan"><i class="fas fa-user text-warning"></i>Pesanan</a>
+                    </li>
+                @endif
             </ul>
         </div>
         <div class="col-md-10 p-5 pt-5">
-            <h2><i class="fas fa-user"></i> DAFTAR USER </h2><hr>
-            <a href="" class="btn btn-warning mb-3"><i class="fas fa-plus"></i> TAMBAH USER</a>
+            {{-- <h2><i class="fas fa-user"></i>Profile</h2><hr> --}}
             @yield('tabel')
         </div>
     </div>

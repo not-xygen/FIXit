@@ -1,0 +1,1 @@
+@extends('layouts.f_p_layouts')

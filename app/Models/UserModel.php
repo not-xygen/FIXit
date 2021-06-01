@@ -19,15 +19,21 @@ class UserModel extends Model
         return User::whereRoleIs('fixer')->get();;
     }
     public function dataProfile($id)
+    
     {
         return User::where('id',$id)->first();;
     }
+
     public function countProfile()
     {
         $fixer = User::whereRoleIs('fixer')->count();
         $pelanggan = User::whereRoleIs('pelanggan')->count();
         return (compact('fixer','pelanggan'));
 
+    }
+    public function pemesananData($data)
+    {
+        DB::table('pemesanan')->insert($data);
     }
 
 }
