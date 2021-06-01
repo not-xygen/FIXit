@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class UserModel extends Model
 {
@@ -21,4 +22,12 @@ class UserModel extends Model
     {
         return User::where('id',$id)->first();;
     }
+    public function countProfile()
+    {
+        $fixer = User::whereRoleIs('fixer')->count();
+        $pelanggan = User::whereRoleIs('pelanggan')->count();
+        return (compact('fixer','pelanggan'));
+
+    }
+
 }

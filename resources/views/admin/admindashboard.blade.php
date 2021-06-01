@@ -61,7 +61,7 @@
                         </div>
                         <h5 class="card-title">JUMLAH USER</h5>
                         <div class="display-4 text-warning">
-                            345
+                            {{$count['pelanggan']}}
                         </div>
                         <a  style="text-decoration: none;" href="daftar_user.html"><p class="card-text text-warning">Lihat Detail <i class="fas fa-angle-double-right"></i></p></a>
                     </div>
@@ -74,7 +74,7 @@
                         </div>
                         <h5 class="card-title">JUMLAH FIXER</h5>
                         <div class="display-4 text-warning">
-                            27
+                            {{$count['fixer']}}
                         </div>
                         <a  style="text-decoration: none;" href="daftar_fixer.html"><p class="card-text text-warning">Lihat Detail <i class="fas fa-angle-double-right"></i></p></a>
                     </div>
