@@ -19,4 +19,9 @@ class PemesananModel extends Model
     {
         DB::table('payments')->insert($data);
     }
+    public function getRiwayat($id_pelanggan)
+    {
+        $data = DB::table('payments')->where('id_pelanggan',$id_pelanggan)->get();
+        return($data);
+    }
 }

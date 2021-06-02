@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth', 'role:pelanggan,fixer,admin']],function()
     });
 
 Route::get('/payments/{id_fixer}',[PemesananController::class,'pemesanan']);
+Route::get('/riwayat/{id_pelanggan}',[PemesananController::class,'riwayatPemesanan']);
 Route::Post('/payments/{id_fixer}/invoice',[PemesananController::class,'inputInvoice']);
 
 require __DIR__.'/auth.php';

@@ -17,7 +17,7 @@
 
                     <h2>SIGN UP</h2>
                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nama Anda">
-                    <input id="no_telepon_pelanggan" type="text" class="form-control @error('no_telepon_pelanggan') is-invalid @enderror" name="no_telepon_pelanggan" required autocomplete="no_telepon_pelanggan" autofocus placeholder="Nomor HP">
+                    <input id="no_telepon_pelanggan" type="text" class="form-control @error('no_telepon_pelanggan') is-invalid @enderror" name="no_telepon_pelanggan" value="{{old('no_telepon_pelanggan')}}" required autocomplete="no_telepon_pelanggan" autofocus placeholder="Nomor HP">
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Masukkan Email Anda">
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Masukkan Password Anda">
                     <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Masukkan Ulang Password Anda">

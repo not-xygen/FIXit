@@ -15,18 +15,18 @@ class CreatePaymentsTables extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('id_pelanggan');
-            $table->integer('id_fixer')
-                ->reference('id')
-                ->on('users')
-                ->onDelete('cascade');
+            $table->unsignedBigInteger('id_pelanggan');
+            $table->unsignedBigInteger('id_fixer');
             $table->string('jenis_device');
             $table->timestamps();
             $table->foreign('id_pelanggan')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-
+            $table->foreign('id_fixer')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
@@ -37,6 +37,6 @@ class CreatePaymentsTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('payments_tables');
     }
 }

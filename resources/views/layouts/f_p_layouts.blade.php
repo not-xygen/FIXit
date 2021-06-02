@@ -36,7 +36,7 @@
                     <a class="nav-link text-white" aria-current="page" href="#"><i class="fas fa-home text-warning"></i> Halaman Utama</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active text-white" href="/riwayat"><i class="fas fa-user text-warning"></i>Riwayat</a>
+                    <a class="nav-link active text-white" href="/riwayat/{{Auth::user()->id}}"><i class="fas fa-user text-warning"></i>Riwayat</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="/profile"><i class="fas fa-user-cog text-warning"></i>Profile</a>
