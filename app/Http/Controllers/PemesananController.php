@@ -14,15 +14,7 @@ class PemesananController extends Controller
         $this->PemesananModel = new PemesananModel();
         $this->middleware('auth');
     }
-    
-    public function pemesanan($id_fixer)
-    {
-        if (!$this->PemesananModel->dataInvoice($id_fixer)) {
-            abort(404);
-        }
-        $data_fixer = ['data_fixer'=> $this->PemesananModel->dataInvoice($id_fixer)];
-        return view('pelanggan.p_invoice',compact('data_fixer'));
-    }
+
     public function inputInvoice()
     {
         $data = 
@@ -38,7 +30,7 @@ class PemesananController extends Controller
             'alamat_pelanggan' => Request()->alamat_pelanggan,
             'alamat_fixer' => Request()->alamat_fixer,
         ];
-        $this->PemesananModel->invoice($data);
+        $this->PemesananModel->inputPemesanan($data);
         return redirect()->route('dashboard');
     }
     public function riwayatPemesanan($id_pelanggan)
@@ -46,6 +38,7 @@ class PemesananController extends Controller
         $riwayat_data = ['riwayat_data' => $this->PemesananModel->getRiwayat($id_pelanggan)];
         return view ('pelanggan.p_riwayat',$riwayat_data);
     }
+    
 
 
     //

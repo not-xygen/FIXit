@@ -15,7 +15,7 @@ class PemesananModel extends Model
         $data = $data->where('id',$id_fixer)->first();
         return($data);
     }
-    public function invoice($data)
+    public function inputPemesanan($data)
     {
         DB::table('payments')->insert($data);
     }
