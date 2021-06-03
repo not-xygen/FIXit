@@ -38,7 +38,7 @@
             </div>
         </nav>
         <div class="row position-absolute w-100 h-100">
-            <div class="col-2 bg-dark p-5">
+            <div class="col-2 bg-dark p-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
                         <a class="nav-link text-white" aria-current="page" href="#"><i
