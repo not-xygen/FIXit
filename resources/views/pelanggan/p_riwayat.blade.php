@@ -6,10 +6,11 @@
       <th scope="col">Id Pesanan</th>
       <th scope="col">Nama Pelanggan</th>
       <th scope="col">Nama Fixer</th>
-      <th scope="col">Device</th>  
-      {{-- <th scope="col">No. Telp.</th>
-      <th scope="col">Alamat</th>
-      <th scope="col">Password</th> --}}
+      <th scope="col">No. Telp Pelanggan</th> 
+      <th scope="col">No. Telp Fixer</th>
+      <th scope="col">Alamat Pelanggan</th>
+      <th scope="col">Alamat Fixer</th>
+      <th scope="col">Jenis Device</th>
       <th scope="col" colspan="2">Action</th>
     </tr>
   </thead>
@@ -17,8 +18,13 @@
     @foreach ($riwayat_data as $value)
     <tr>
         <td>{{$value->id}}</td>
-        <td>{{$value->id_pelanggan}}</td>
-        <td>{{$value->id_fixer}}</td>
+        <td>{{$value->nama_pelanggan}}</td>
+        <td>{{$value->nama_fixer}}</td>
+        <td>{{$value->no_hp_pelanggan}}</td>
+        <td>{{$value->no_hp_fixer}}</td>
+        <td>{{$value->alamat_pelanggan}}</td>
+        <td>{{$value->alamat_fixer}}</td>
+        <td>{{$value->jenis_device}}</td>
         {{-- <td>{{$value->no_telepon_pelanggan}}</td> --}}
         {{-- <td><a href="/payments/{{$value->id}}">Pesan</a></td> --}}
     </tr>

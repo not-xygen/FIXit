@@ -33,7 +33,7 @@ class PemesananController extends Controller
             'nama_pelanggan' => Request()->nama_pelanggan,
             'nama_fixer' => Request()->nama_fixer,
             'no_hp_fixer' => Request()->no_hp_fixer,
-            'foto_device' => Request()->foto_device,
+            // 'foto_device' => Request()->foto_device,
             'no_hp_pelanggan' => Request()->no_hp_pelanggan,
             'alamat_pelanggan' => Request()->alamat_pelanggan,
             'alamat_fixer' => Request()->alamat_fixer,
@@ -44,7 +44,7 @@ class PemesananController extends Controller
     public function riwayatPemesanan($id_pelanggan)
     {
         $riwayat_data = ['riwayat_data' => $this->PemesananModel->getRiwayat($id_pelanggan)];
-        return view ('pelanggan.p_riwayat',dd($riwayat_data));
+        return view ('pelanggan.p_riwayat',$riwayat_data);
     }
 
 

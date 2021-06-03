@@ -13,18 +13,57 @@
     <div class="row">
         <div class="col-6">
             <div class="form-group">
-                <label for="">Nama Fixer</label>
-                <input name="nama_fixer" class="form-control" placeholder="" value="{{ $data_fixer['data_fixer']-> name}}">
-                <div class="text-danger">
-                </div>
-            </div>
-            <div class="form-group">
                 <label for="">Nama Pelanggan</label>
-                <input name="name" class="form-control" placeholder="Masukkan Nama anda" value="{{ Auth::user()-> name }}">
+                <input name="nama_pelanggan" class="form-control" placeholder="Masukkan Nama anda" value="{{ Auth::user()-> name }}">
                 <div class="text-danger">
                 @error('alamat_pelanggan')
                         {{ $message }}
                 @enderror
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">id pelanggan</label>
+                <input name="id_pelanggan" class="form-control" placeholder="Masukkan Nama anda" value="{{ Auth::user()-> id }}">
+                <div class="text-danger">
+                @error('id_pelanggan')
+                        {{ $message }}
+                @enderror
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">NoHP</label>
+                <input name="no_hp_pelanggan" class="form-control" placeholder="Masukkan noHP anda"  value="{{ Auth::user()-> no_telepon_pelanggan }}">
+                <div class="text-danger">
+                @error('no_hp_pelanggan')
+                        {{ $message }}
+                @enderror
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="">Alamat</label>
+                <input name="alamat_pelanggan" class="form-control" placeholder="Masukkan noHP anda"  value="{{ Auth::user()-> alamat }}">
+                <div class="text-danger">
+                @error('alamat_pelanggan')
+                        {{ $message }}
+                @enderror
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="">Device</label>
+                <input name="jenis_device" class="form-control" placeholder="Masukkan Nama anda" value="">
+                <div class="text-danger">
+                @error('jenis_device')
+                        {{ $message }}
+                @enderror
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="">Nama Fixer</label>
+                <input name="nama_fixer" class="form-control" placeholder="" value="{{ $data_fixer['data_fixer']-> name}}">
+                <div class="text-danger">
                 </div>
             </div>
             <div class="form-group">
@@ -33,35 +72,28 @@
                 <div class="text-danger">
                 </div>
             </div>
+
             <div class="form-group">
-                <label for="">id pelanggan</label>
-                <input name="id_pelanggan" class="form-control" placeholder="Masukkan Nama anda" value="{{ Auth::user()-> id }}">
-                <div class="text-danger">
-                @error('alamat_pelanggan')
-                        {{ $message }}
-                @enderror
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="">Device</label>
-                <input name="jenis_device" class="form-control" placeholder="Masukkan Nama anda" value="">
-                <div class="text-danger">
-                @error('alamat_pelanggan')
-                        {{ $message }}
-                @enderror
-                </div>
-            </div>
-            {{-- <div class="form-group">
                 <label for="">NoHP</label>
-                <input name="noHp_pelanggan" class="form-control" placeholder="Masukkan noHP anda"  value="{{$data_fixer-> noHp_pelanggan}}">
+                <input name="alamat_fixer" class="form-control" placeholder="Masukkan noHP anda"  value="{{$data_fixer['data_fixer']-> alamat }}">
                 <div class="text-danger">
-                @error('noHp_pelanggan')
+                @error('alamat_fixer')
                         {{ $message }}
                 @enderror
                 </div>
             </div>
 
             <div class="form-group">
+                <label for="">NoHP</label>
+                <input name="no_hp_fixer" class="form-control" placeholder="Masukkan noHP anda"  value="{{$data_fixer['data_fixer']-> no_telepon_pelanggan}}">
+                <div class="text-danger">
+                @error('no_hp_fixer')
+                        {{ $message }}
+                @enderror
+                </div>
+            </div>
+
+            {{-- <div class="form-group">
                 <label for="">Foto</label>
                 <input type="file" name="foto_pelanggan" class="form-control" placeholder="Pilih foto anda" >
                 <img src="{{url('foto_pelanggan/'.$data_fixer->foto_pelanggan)}}" alt="">
