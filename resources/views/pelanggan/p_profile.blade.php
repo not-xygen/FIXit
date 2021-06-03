@@ -1,0 +1,1 @@
+Your Name IS {{Auth::user()->name}}

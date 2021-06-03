@@ -22,6 +22,13 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        Schema::create('payments', function (Blueprint $table) {
+            $table->id();
+            $table->integer('id_pelanggan');
+            $table->integer('id_fixer');
+            $table->string('jenis_device');
+            $table->timestamps();
+        });
     }
 
     /**
