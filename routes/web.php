@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']],function(){
     });
 
 
-Route::group(['middleware' => ['auth', 'role:pelanggan,fixer,admin']],function(){
+Route::group(['middleware' => ['auth']],function(){
     Route::get('/profile',[UserController::class, 'profile'])->name('profile');
     });
 

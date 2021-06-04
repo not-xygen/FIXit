@@ -22,8 +22,15 @@
     <div class="container-fluid m-0 p-0">
         <nav class="navbar navbar-expand-lg navbar-light bg-dark sticky-top m-0">
             <div class="container-fluid">
-                <h1><a class="navbar-brand text-white" href="#">Selamat Datang {{Auth::user()->name}} | FIX<span
-                            class="text-warning">IT</span></a></h1>
+                <h1><a class="navbar-brand text-white" href="#">
+                    Selamat Datang
+                    @if (Auth::user()->hasRole('admin'))
+                        Admin
+                    @endif 
+                    {{Auth::user()->name}} | FIX
+                    <span class="text-warning">IT</span>
+                    </a>
+                </h1>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -44,26 +51,43 @@
                         <a class="nav-link text-white" aria-current="page" href="#"><i
                                 class="fas fa-home text-warning"></i> Halaman Utama</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active text-white" href="/riwayat/{{Auth::user()->id}}"><i
-                                class="fas fa-user text-warning"></i>Riwayat</a>
-                    </li>
+                    @if (Auth::user()->hasRole('pelanggan'))
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" href="/riwayat/{{Auth::user()->id}}"><i class="fas fa-user text-warning"></i>Riwayat</a>
+                        </li>
+                    @endif
+    
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/profile"><i
                                 class="fas fa-user-cog text-warning"></i>Profile</a>
                     </li>
                     @if (Auth::user()->hasRole('fixer'))
-                    <li class="nav-item">
-                        <a class="nav-link active text-white" href="/pesanan"><i
-                                class="fas fa-user text-warning"></i>Pesanan</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" href="/pesanan"><i class="fas fa-user text-warning"></i>Pesanan</a>
+                        </li>
+                    @endif
+                    @if (Auth::user()->hasRole('admin'))
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" href="/daftaruser"><i class="fas fa-user text-warning"></i> Daftar User</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/daftarfixer"><i class="fas fa-user-cog text-warning"></i> Daftar Fixer</a>
+                        </li>
                     @endif
                 </ul>
             </div>
-            <div class="col p-5 h-0">
-                {{-- <h2><i class="fas fa-user"></i>Profile</h2><hr> --}}
-                @yield('tabel')
-            </div>
+            @if (Auth::user()->hasRole('pelanggan','fixer'))
+                <div class="col p-5 h-0">
+                    @yield('tabel')
+                </div>
+            @endif
+            @if (Auth::user()->hasRole('admin'))
+                <div class="col-md-10 p-5 pt-5">
+                    @yield('a_dashboard')
+                </div>
+            @endif
+
+
         </div>
     </div>
 
