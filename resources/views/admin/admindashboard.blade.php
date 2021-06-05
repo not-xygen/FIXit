@@ -1,4 +1,7 @@
 @extends('layouts.f_p_layouts')
+@section('title')
+    Dashboard
+@endsection
 @section('a_dashboard')
 
 <h2><i class="fas fa-home"></i> HALAMAN UTAMA </h2><hr>

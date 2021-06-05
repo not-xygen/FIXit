@@ -33,13 +33,16 @@ class PemesananController extends Controller
         $this->PemesananModel->inputPemesanan($data);
         return redirect()->route('dashboard');
     }
-    public function riwayatPemesanan($id_pelanggan)
+    public function riwayatPemesananPelanggan($id_pelanggan)
     {
-        $riwayat_data = ['riwayat_data' => $this->PemesananModel->getRiwayat($id_pelanggan)];
+        $riwayat_data = ['riwayat_data' => $this->PemesananModel->getRiwayatPelanggan($id_pelanggan)];
         return view ('pelanggan.p_riwayat',$riwayat_data);
     }
+    public function riwayatPemesananFixer($id_fixer)
+    {
+        $riwayat_data = ['riwayat_data' => $this->PemesananModel->getRiwayatFixer($id_fixer)];
+        return view ('fixer.f_pesanan',$riwayat_data);
+    }
     
-
-
     //
 }

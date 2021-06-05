@@ -19,9 +19,14 @@ class PemesananModel extends Model
     {
         DB::table('payments')->insert($data);
     }
-    public function getRiwayat($id_pelanggan)
+    public function getRiwayatPelanggan($id_pelanggan)
     {
         $data = DB::table('payments')->where('id_pelanggan',$id_pelanggan)->get();
+        return($data);
+    }
+    public function getRiwayatFixer($id_fixer)
+    {
+        $data = DB::table('payments')->where('id_fixer',$id_fixer)->get();
         return($data);
     }
 }

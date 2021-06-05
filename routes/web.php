@@ -36,9 +36,11 @@ Route::group(['middleware' => ['auth']],function(){
 
 //Bagian Pelanggan
 Route::get('/payments/{id_fixer}',[PelangganController::class,'pemesanan']);
-
+Route::get('/listjasa',[PelangganController::class,'listjasa']);
 //Bagian Pemesanan
 Route::get('/riwayat/{id_pelanggan}',[PemesananController::class,'riwayatPemesanan']);
 Route::Post('/payments/{id_fixer}/invoice',[PemesananController::class,'inputInvoice']);
 
+//Bagian Fixer
+Route::get('/pesanan/{id_fixer}',[PemesananController::class,'riwayatPemesananFixer']);
 require __DIR__.'/auth.php';

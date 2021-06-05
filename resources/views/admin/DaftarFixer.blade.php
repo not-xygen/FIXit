@@ -1,5 +1,9 @@
 @extends('layouts.f_p_layouts')
+@section('title')
+    DaftarFixer
+@endsection
 @section('a_dashboard')
+
 <table class="table table-striped table-bordered">
   <thead>
     <tr>

@@ -15,7 +15,7 @@
 
     <!-- CSS sendiri -->
     <link rel="stylesheet" href="admin_style.css">
-    <title>Daftar User</title>
+    <title>@yield('title')</title>
 </head>
 
 <body style="height: 100%;">
@@ -48,7 +48,7 @@
             <div class="col-2 bg-dark p-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link text-white" aria-current="page" href="#"><i
+                        <a class="nav-link text-white" aria-current="page" href="/dashboard"><i
                                 class="fas fa-home text-warning"></i> Halaman Utama</a>
                     </li>
                     @if (Auth::user()->hasRole('pelanggan'))
@@ -63,7 +63,7 @@
                     </li>
                     @if (Auth::user()->hasRole('fixer'))
                         <li class="nav-item">
-                            <a class="nav-link active text-white" href="/pesanan"><i class="fas fa-user text-warning"></i>Pesanan</a>
+                            <a class="nav-link active text-white" href="/pesanan/{{Auth::user()->id}}"><i class="fas fa-user text-warning"></i>Pesanan</a>
                         </li>
                     @endif
                     @if (Auth::user()->hasRole('admin'))
@@ -76,7 +76,7 @@
                     @endif
                 </ul>
             </div>
-            @if (Auth::user()->hasRole('pelanggan','fixer'))
+            @if (Auth::user()->hasRole(['pelanggan','fixer']))
                 <div class="col p-5 h-0">
                     @yield('tabel')
                 </div>

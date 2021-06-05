@@ -26,8 +26,7 @@ class DashboardController extends Controller
             
         }else if(Auth::user()->hasRole('pelanggan'))
         {   
-            $data['data_fixer'] = $this->UserModel->getFixer();
-            return view('pelanggan.p_dashboard',['data_fixer'=>$data['data_fixer']]);
+            return view('pelanggan.p_dashboard');
         }
     }
 }

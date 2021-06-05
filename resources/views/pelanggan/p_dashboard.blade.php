@@ -1,26 +1,28 @@
 @extends('layouts.f_p_layouts')
 @section('tabel')
-<table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Nama</th>
-      <th scope="col">Email</th>
-      <th scope="col">No.Telp</th>
-      <th scope="col">Alamat</th>
-      <th scope="col" colspan="2">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach ($data_fixer as $value)
-    <tr>
-        <td>{{$value->name}}</td>
-        <td>{{$value->email}}</td>
-        <td>{{$value->no_telepon_pelanggan}}</td>
-        <td>{{$value->alamat}}</td>
-        <td><a href="/payments/{{$value->id}}">Pesan</a></td>
-    </tr>
-  @endforeach  
-  </tbody>
-</table>
-            
+@section('title')
+    Dashboard
+@endsection
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <img class="card-img-top" src="https://dummyimage.com/600x400/000/fff&text=Phone" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Fix Your Phone Here</h5>
+        <p class="card-text">Service Smartphone anda disini yang akan di bantu dengan tenaga kerja yang profesional</p>
+        <a href="/listjasa" class="btn btn-primary">Cari Sekarang</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <img class="card-img-top" src="https://dummyimage.com/600x400/000/fff&text=Something" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Fix Something ComingSoon</h5>
+        <p class="card-text">Service Somthing anda disini yang akan di bantu dengan tenaga kerja yang profesional</p>
+        <a href="#" class="btn btn-primary disabled" >Cari Sekarang</a>
+      </div>
+    </div>
+  </div>
+</div>             
 @endsection

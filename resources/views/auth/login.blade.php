@@ -7,6 +7,11 @@
     <title>SignIn</title>
     <link rel="stylesheet" href="{{asset('css/styleloginpage.css')}}">
 </head>
+        <!-- Session Status -->
+        <x-auth-session-status class="mb-4" :status="session('status')" />
+
+        <!-- Validation Errors -->
+        
 <body>
     <div class="container">
         <div class="signin">
@@ -15,8 +20,19 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <h2>SIGN IN</h2>
-                    <input placeholder="Masukkan Email Anda" id="email" type="email" name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                    <input placeholder="Masukkan Password Anda" id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    <!-- Email Address -->
+                    <div>
+                        <x-label for="email" :value="__('Email')" />
+                        <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                    </div>
+                    <div class="mt-4">
+                        <x-label for="password" :value="__('Password')" />
+                        <x-input id="password" class="block mt-1 w-full"
+                                        type="password"
+                                        name="password"
+                                        required autocomplete="current-password" />
+                    </div>
+                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
                     <button type="submit" class="btn btn-primary">
                         {{ __('Login') }}
                     </button>
