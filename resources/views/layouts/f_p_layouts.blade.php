@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -29,6 +29,12 @@
                     @endif 
                     {{Auth::user()->name}} | FIX
                     <span class="text-warning">IT</span>
+                    @if ($message = Session::get('success'))
+	                    <div class="alert alert-dark alert-block">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></button>	
+		                        <strong>{{ $message }}</strong>
+	                    </div>
+	                @endif
                     </a>
                 </h1>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

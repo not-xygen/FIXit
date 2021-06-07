@@ -12,6 +12,7 @@
       <th scope="col">Alamat Fixer</th>
       <th scope="col">Jenis Device</th>
       <th scope="col">Status</th>
+      <th scope="col">Foto Device</th>
       @if (Auth::user()->hasRole('fixer'))
         <th scope="col" colspan="2">Action</th>
       @endif
@@ -29,6 +30,8 @@
         <td>{{$value->alamat_fixer}}</td>
         <td>{{$value->jenis_device}}</td>
         <td>{{$value->status}}</td>
+        <td>
+          <img src="{{url('img/foto_device/'.$value->foto_device)}}" alt="" width="100" height="100"></td>
         @if (Auth::user()->hasRole('fixer'))
             <td>Do Something</td>
         @endif

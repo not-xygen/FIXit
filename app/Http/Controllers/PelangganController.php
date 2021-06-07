@@ -19,7 +19,7 @@ class PelangganController extends Controller
             abort(404);
         }
         $data_fixer = ['data_fixer'=> $this->PemesananModel->dataInvoice($id_fixer)];
-        return view('pelanggan.p_invoice',compact('data_fixer'));
+        return view('pelanggan.p_pemesanan',compact('data_fixer'));
     }
     public function listjasa()
     {

@@ -17,10 +17,14 @@ class PemesananController extends Controller
 
     public function inputInvoice()
     {
+        $file = Request()->foto_device;
+        $filename = Request()->nama_pelanggan. '.' .$file->extension(); 
+        $file->move(public_path('/img/foto_device'),$filename);
+
         $data = 
         [
             'id_fixer' => Request()->id_fixer,
-            'id_pelanggan' => Request()->id_pelanggan,
+            'id_pelanggan' => Auth::user()->id,
             'jenis_device' => Request()->jenis_device,
             'nama_pelanggan' => Request()->nama_pelanggan,
             'nama_fixer' => Request()->nama_fixer,
@@ -29,6 +33,8 @@ class PemesananController extends Controller
             'no_hp_pelanggan' => Request()->no_hp_pelanggan,
             'alamat_pelanggan' => Request()->alamat_pelanggan,
             'alamat_fixer' => Request()->alamat_fixer,
+            'foto_device' => $filename,
+  
         ];
         $this->PemesananModel->inputPemesanan($data);
         return redirect()->route('dashboard');

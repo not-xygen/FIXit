@@ -51,7 +51,8 @@ class RegisteredUserController extends Controller
         $user->attachRole($request->role_id);
         event(new Registered($user));
         Auth::login($user);
-
+        session()->flash('success', 'Pendaftaran berhasil'); 
+        
         return redirect(RouteServiceProvider::HOME);
     }
 }

@@ -28,7 +28,8 @@ class UserModel extends Model
     {
         $fixer = User::whereRoleIs('fixer')->count();
         $pelanggan = User::whereRoleIs('pelanggan')->count();
-        return (compact('fixer','pelanggan'));
+        $pesanan = DB::table('payments')->count();
+        return (compact('fixer','pelanggan','pesanan'));
 
     }
     public function pemesananData($data)

@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth']],function(){
 Route::get('/payments/{id_fixer}',[PelangganController::class,'pemesanan']);
 Route::get('/listjasa',[PelangganController::class,'listjasa']);
 //Bagian Pemesanan
-Route::get('/riwayat/{id_pelanggan}',[PemesananController::class,'riwayatPemesanan']);
+Route::get('/riwayat/{id_pelanggan}',[PemesananController::class,'riwayatPemesananPelanggan']);
 Route::Post('/payments/{id_fixer}/invoice',[PemesananController::class,'inputInvoice']);
 
 //Bagian Fixer
