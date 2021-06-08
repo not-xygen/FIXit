@@ -29,7 +29,7 @@
         <td>{{$value->alamat_pelanggan}}</td>
         <td>{{$value->alamat_fixer}}</td>
         <td>{{$value->jenis_device}}</td>
-        @if (Auth::user()->hasRole('pengguna'))
+        @if (Auth::user()->hasRole('pelanggan'))
           <td>{{$value->status}}</td>
         @endif
         @if (Auth::user()->hasRole('fixer'))
@@ -53,7 +53,6 @@
           </td>
           </form>
         @endif
-        <td>{{$value->status}}</td> 
         <td>
           <img src="{{url('img/foto_device/'.$value->foto_device)}}" alt="" width="100" height="100">
         </td>
