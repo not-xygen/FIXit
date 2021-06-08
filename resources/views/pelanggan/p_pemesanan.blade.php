@@ -13,7 +13,7 @@
              <label>Nama Pelanggan :</label>
          </div>
              <div class="col-md-9">
-                 <input name="nama_pelanggan" class="form-control" placeholder="Masukkan Nama anda" value="{{ Auth::user()-> name }}">
+                 <input name="nama_pelanggan" class="form-control" placeholder="Masukkan Nama anda" value="{{ Auth::user()-> name }}" required>
                  @error('nama_pelanggan')
                      {{ $message  }}
                  @enderror
@@ -27,7 +27,7 @@
              <label>Alamat Pelanggan :</label>
          </div>
              <div class="col-md-9">
-                 <input name="alamat_pelanggan" class="form-control" placeholder="Masukkan Nama anda" value="{{ Auth::user()-> alamat }}">
+                 <input name="alamat_pelanggan" class="form-control" placeholder="Masukkan Nama anda" value="{{ Auth::user()-> alamat }}" required>
                  @error('alamat_pelanggan')
                      {{ $message  }}
                  @enderror
@@ -41,7 +41,7 @@
              <label>NoHP Pelanggan :</label>
          </div>
              <div class="col-md-9">
-                 <input name="no_hp_pelanggan" class="form-control" placeholder="Masukkan Nama anda" value="{{ Auth::user()-> no_telepon_pelanggan }}">
+                 <input name="no_hp_pelanggan" class="form-control" placeholder="Masukkan Nama anda" value="{{ Auth::user()-> no_telepon_pelanggan }}" required>
                  @error('no_hp_pelanggan')
                      {{ $message  }}
                  @enderror
@@ -98,25 +98,41 @@
            <label>Jenis Device</label>
        </div>
            <div class="col-md-9">
-               <input name="jenis_device" class="form-control" placeholder="Masukkan Jenis Device Anda" value="">
+               <input name="jenis_device" class="form-control" placeholder="Masukkan Jenis Device Anda" value="" required>
                @error('jenis_device')
                    {{ $message  }}
                @enderror
            </div>
        </div>
-   </div>
+     </div>
+    <div class="form-group">
+        <br>
+       <div class="row">
+       <div class="col-md-3">
+           <label>Jenis Kerusakan</label>
+       </div>
+           <div class="col-md-9">
+                <textarea class="form-control" name="jenis_kerusakan" aria-label="With textarea" required></textarea>
+               @error('jenis_device')
+                   {{ $message  }}
+               @enderror
+           </div>
+       </div>
+    </div>
      <div class="form-group">
          <br>
          <div class="row">
             <div class="col-md-3">
-        <label for="">Foto</label>
-        <input type="file" name="foto_device" class="form-control" placeholder="Pilih foto device anda" >
-        <div class="text-danger">
-        @error('foto_device')
-                {{ $message }}
-        @enderror
-        </div>
-        </div>
+                <label for="">Foto</label>
+            </div>
+            <div class="col-md-9">    
+                    <input type="file" name="foto_device" class="form-control" placeholder="Pilih foto device anda"  accept=".png, .jpg, .jpeg" required>
+                <div class="text-danger">
+                @error('foto_device')
+                    {{ $message }}
+                @enderror
+            </div>   
+            </div>
         </div>
     </div>
      <div class="form-group">

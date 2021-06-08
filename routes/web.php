@@ -5,7 +5,8 @@ use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use Symfony\Component\HttpKernel\Profiler\Profile;
+use App\Http\Controllers\FixerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,7 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('/profile',[UserController::class, 'profile'])->name('profile');
     });
 
+Route::post('/profile/update/{id}',[UserController::class,'updateProfile']);
 //Bagian Pelanggan
 Route::get('/payments/{id_fixer}',[PelangganController::class,'pemesanan']);
 Route::get('/listjasa',[PelangganController::class,'listjasa']);
@@ -43,4 +45,5 @@ Route::Post('/payments/{id_fixer}/invoice',[PemesananController::class,'inputInv
 
 //Bagian Fixer
 Route::get('/pesanan/{id_fixer}',[PemesananController::class,'riwayatPemesananFixer']);
+Route::post('/pesanan/{id}/update',[FixerController::class,'editPesanan']);
 require __DIR__.'/auth.php';

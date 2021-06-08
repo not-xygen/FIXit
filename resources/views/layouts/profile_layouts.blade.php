@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="admin_style.css">
     <title>@yield('title')</title>
 </head>
+
 <body style="height: 100%;">
     <div class="container-fluid m-0 p-0">
         <nav class="navbar navbar-expand-lg navbar-light bg-dark sticky-top m-0">
@@ -28,6 +29,12 @@
                     @endif 
                     {{Auth::user()->name}} | FIX
                     <span class="text-warning">IT</span>
+                    @if ($message = Session::get('success'))
+	                    <div class="alert alert-dark alert-block">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></button>	
+		                        <strong>{{ $message }}</strong>
+	                    </div>
+	                @endif
                     </a>
                 </h1>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -47,9 +54,7 @@
             <div class="col-2 bg-dark p-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <div class="text-center">
-                            <img src="{{url('img/foto_profile/'.Auth::user()->foto_profile)}}" alt="" width="100" height="100" >        
-                        </div>
+                        @yield('photo')
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" aria-current="page" href="/dashboard"><i
@@ -60,7 +65,6 @@
                             <a class="nav-link active text-white" href="/riwayat/{{Auth::user()->id}}"><i class="fas fa-user text-warning"></i>Riwayat</a>
                         </li>
                     @endif
-    
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/profile"><i
                                 class="fas fa-user-cog text-warning"></i>Profile</a>
@@ -83,6 +87,10 @@
             @if (Auth::user()->hasRole(['pelanggan','fixer']))
                 <div class="col p-5 h-0">
                     @yield('tabel')
+                    @if (Auth::user()->hasRole('fixer'))
+                        @yield('fixer_feature')
+                    @endif
+                    @yield('button')
                 </div>
             @endif
             @if (Auth::user()->hasRole('admin'))
@@ -90,8 +98,6 @@
                     @yield('a_dashboard')
                 </div>
             @endif
-
-
         </div>
     </div>
 

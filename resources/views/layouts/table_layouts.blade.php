@@ -12,10 +12,10 @@
       <th scope="col">Alamat Fixer</th>
       <th scope="col">Jenis Device</th>
       <th scope="col">Status</th>
-      <th scope="col">Foto Device</th>
       @if (Auth::user()->hasRole('fixer'))
-        <th scope="col" colspan="2">Action</th>
+        <th scope="col" colspan="1">Action</th>
       @endif
+      <th scope="col">Foto Device</th>
     </tr>
   </thead>
   <tbody>
@@ -29,12 +29,34 @@
         <td>{{$value->alamat_pelanggan}}</td>
         <td>{{$value->alamat_fixer}}</td>
         <td>{{$value->jenis_device}}</td>
-        <td>{{$value->status}}</td>
-        <td>
-          <img src="{{url('img/foto_device/'.$value->foto_device)}}" alt="" width="100" height="100"></td>
-        @if (Auth::user()->hasRole('fixer'))
-            <td>Do Something</td>
+        @if (Auth::user()->hasRole('pengguna'))
+          <td>{{$value->status}}</td>
         @endif
+        @if (Auth::user()->hasRole('fixer'))
+          <form action="/pesanan/{{$value->id}}/update" method="POST" enctype="multipart/form-data">
+            @csrf
+          <td>
+            <div class="form-group">
+            <select name="status" class="form-control" id="exampleFormControlSelect1">
+              <option>{{$value->status}}</option>
+              <option value="Sedang Dikerjakan">Sedang Dikerjakan</option>
+              <option value="Selesai">Selesai</option>
+            </select>
+          </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <div class="input-group mb-3">
+                  <button class="btn btn-primary btn-sm">Simpan</button>
+              </div>
+              </div>  
+          </td>
+          </form>
+        @endif
+        <td>{{$value->status}}</td> 
+        <td>
+          <img src="{{url('img/foto_device/'.$value->foto_device)}}" alt="" width="100" height="100">
+        </td>
         {{-- <td>{{$value->no_telepon_pelanggan}}</td> --}}
         {{-- <td><a href="/payments/{{$value->id}}">Pesan</a></td> --}}
     </tr>

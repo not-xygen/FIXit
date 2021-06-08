@@ -4,11 +4,11 @@
     @foreach ($data_fixer as $item)
         <div class="col-sm-3 pt-2">
             <div class="card">
-            <img class="card-img-top" src="https://dummyimage.com/600x400/000/fff&text=Posterjasa" alt="Card image cap">
+                <img class="card-img-top" src="{{url('img/poster/'.$item-> poster )}}" alt="" width="500" height="300" >   
             <div class="card-body">
                 <h5 class="card-title">{{$item-> name }} Phone </h5>
                 <p class="card-text">{{$item-> desc_fixer }}</p>
-                <a href="/payments/{{$item->id}}"class="btn btn-primary">Pesan Sekarang</a>
+                <a href="/payments/{{$item-> id }}"class="btn btn-primary">Pesan Sekarang</a>
             </div>
             </div>
         </div>

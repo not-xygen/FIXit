@@ -17,8 +17,18 @@ class PemesananController extends Controller
 
     public function inputInvoice()
     {
+        Request()->validate([
+            'foto_device' => 'required|mimes:jpg,png|max:1024',
+            'alamat_pelanggan' => 'required',
+            'jenis_device' => 'Required',
+            'jenis_kerusakan' => 'Required',
+        ],
+        [
+
+        ]);
+
         $file = Request()->foto_device;
-        $filename = Request()->nama_pelanggan. '.' .$file->extension(); 
+        $filename = date('Y-m-d H'). '.' .$file->extension(); 
         $file->move(public_path('/img/foto_device'),$filename);
 
         $data = 
@@ -29,11 +39,11 @@ class PemesananController extends Controller
             'nama_pelanggan' => Request()->nama_pelanggan,
             'nama_fixer' => Request()->nama_fixer,
             'no_hp_fixer' => Request()->no_hp_fixer,
-            // 'foto_device' => Request()->foto_device,
             'no_hp_pelanggan' => Request()->no_hp_pelanggan,
             'alamat_pelanggan' => Request()->alamat_pelanggan,
             'alamat_fixer' => Request()->alamat_fixer,
             'foto_device' => $filename,
+            'jenis_kerusakan' => Request()->jenis_kerusakan,
   
         ];
         $this->PemesananModel->inputPemesanan($data);

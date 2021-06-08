@@ -32,9 +32,14 @@ class UserModel extends Model
         return (compact('fixer','pelanggan','pesanan'));
 
     }
-    public function pemesananData($data)
+    public function updateProfile($id,$data)
     {
-        DB::table('pemesanan')->insert($data);
+        User::where('id',$id)->update($data);;
     }
+    public function editPesanan($id,$data)
+    {
+        DB::table('payments')->where('id',$id)->update($data);
+    }
+
 
 }
