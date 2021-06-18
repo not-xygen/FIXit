@@ -38,7 +38,7 @@
     <div class="form-group">
     <div class="input-group mb-3">
         <label class="input-group-text" for="">Foto Anda</label>
-        <input type="file" name="foto_profile" class="form-control" placeholder="Pilih foto device anda" accept="image/*" >
+        <input type="file" name="foto_profile" class="form-control" placeholder="Pilih foto device anda" accept="image/*" required >
         <div class="text-danger">
         @error('foto_profile')
                 {{ $message }}
@@ -51,7 +51,7 @@
         <div class="form-group">
         <div class="input-group mb-3">
             <label class="input-group-text" for="">Uploud Poster Anda</label>
-                <input type="file" name="poster" class="form-control" accept="image/*">
+                <input type="file" name="poster" class="form-control" accept="image/*" required>
             <div class="text-danger">
             @error('poster')
                     {{ $message }}
@@ -62,7 +62,7 @@
         <div class="form-group">    
         <div class="input-group">
             <span class="input-group-text">Deskripsi Toko</span>
-            <textarea class="form-control" name="desc_fixer" aria-label="With textarea"></textarea>
+            <textarea class="form-control" name="desc_fixer" aria-label="With textarea" required></textarea>
         </div>
         </div>
     @endsection

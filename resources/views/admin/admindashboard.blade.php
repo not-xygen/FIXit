@@ -1,4 +1,4 @@
-@extends('layouts.f_p_layouts')
+@extends('layouts.a_layouts')
 @section('title')
     Dashboard
 @endsection
@@ -40,7 +40,7 @@
             <div class="display-4 text-warning">
                 {{$count['pesanan']}}
             </div>
-            <a  style="text-decoration: none;" href="/pesanan"><p class="card-text text-warning">Lihat Detail <i class="fas fa-angle-double-right"></i></p></a>
+            <a  style="text-decoration: none;" href="/riwayat"><p class="card-text text-warning">Lihat Detail <i class="fas fa-angle-double-right"></i></p></a>
         </div>
     </div>
 </div>

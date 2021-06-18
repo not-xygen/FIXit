@@ -21,6 +21,7 @@ use App\Http\Controllers\FixerController;
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::get('/riwayat',[PemesananController::class,'riwayatPemesananAdmin']);
 Route::group(['middleware' => ['auth', 'role:admin']],function(){
         Route::get('/daftaruser', [UserController::class, 'dataPelanggan']);
         Route::get('/daftarfixer', [UserController::class, 'dataFixer']);

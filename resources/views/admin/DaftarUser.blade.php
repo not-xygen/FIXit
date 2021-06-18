@@ -1,4 +1,4 @@
-@extends('layouts.f_p_layouts')
+@extends('layouts.a_layouts_pemesanan')
 @section('title')
     DaftarUser
 @endsection
@@ -12,7 +12,6 @@
       <th scope="col">Email</th>
       <th scope="col">No.Telp</th>
       <th scope="col">Alamat</th>
-      <th scope="col" colspan="2">#</th>
     </tr>
   </thead>
   <tbody>

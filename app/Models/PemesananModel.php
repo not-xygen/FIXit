@@ -29,4 +29,9 @@ class PemesananModel extends Model
         $data = DB::table('payments')->where('id_fixer',$id_fixer)->get();
         return($data);
     }
+    public function getRiwayatAdmin()
+    {
+        return DB::table('payments')->get();
+        
+    }
 }

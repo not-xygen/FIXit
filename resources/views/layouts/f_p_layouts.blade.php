@@ -80,17 +80,11 @@
                     @endif
                 </ul>
             </div>
-            @if (Auth::user()->hasRole(['pelanggan','fixer']))
+            @if (Auth::user()->hasRole(['pelanggan','fixer','admin']))
                 <div class="col p-5 h-0">
                     @yield('tabel')
                 </div>
             @endif
-            @if (Auth::user()->hasRole('admin'))
-                <div class="col-md-10 p-5 pt-5">
-                    @yield('a_dashboard')
-                </div>
-            @endif
-
 
         </div>
     </div>

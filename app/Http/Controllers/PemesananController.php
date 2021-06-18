@@ -59,6 +59,11 @@ class PemesananController extends Controller
         $riwayat_data = ['riwayat_data' => $this->PemesananModel->getRiwayatFixer($id_fixer)];
         return view ('fixer.f_pesanan',$riwayat_data);
     }
+    public function riwayatPemesananAdmin()
+    {
+        $riwayat_data = ['riwayat_data' => $this->PemesananModel->getRiwayatAdmin()];
+        return view ('admin.a_pesanan',$riwayat_data);
+    }
     
     //
 }
